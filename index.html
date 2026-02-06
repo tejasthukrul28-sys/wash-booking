@@ -1,1 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Vehicle Wash Service</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
 
+<div class="container">
+
+<div class="logo">
+<img src="washraja-logo.png" alt="Washraja Logo">
+</div>
+
+<h1>Vehicle Wash Booking</h1>
+
+<form id="bookingForm">
+
+<label>Customer Name</label>
+<input type="text" id="name" placeholder="Enter customer name" required>
+
+<label>Contact Number</label>
+<input type="tel" id="contact" placeholder="Enter contact number" required>
+
+<label>Vehicle Type</label>
+<select id="vehicle" required>
+<option value="">Select Vehicle</option>
+<option>Bike</option>
+<option>Auto Rickshaw</option>
+<option>Car</option>
+</select>
+<label>Vehicle Number</label>
+<input type="text" id="vehicleno" placeholder="Enter vehicle number" required>
+<label>Wash Service</label>
+<div class="checkbox-group">
+<label><input type="checkbox" id="bikeWash"> Bike Wash</label>
+<label><input type="checkbox" id="soapWash"> Soap Wash</label>
+<label><input type="checkbox" id="dieselWash"> Diesel Wash</label>
+</div>
+
+<label>Payment Method</label>
+<div class="radio-group">
+<label><input type="radio" name="payment" value="Cash"> Cash</label>
+<label><input type="radio" name="payment" value="GPay"> GPay</label>
+</div>
+
+<button type="submit">Submit Booking</button>
+
+</form>
+
+<p id="successMsg" style="display:none;color:green;">
+Successfully Done!
+</p>
+
+</div>
+
+<script>
+
+constscriptURL = "PASTE_YOUR_GOOGLE_SCRIPT_URL_HERE";
+
+document.getElementById("bookingForm").addEventListener("submit", function(e){
+
+e.preventDefault();
+
+var data = {
+
+name: document.getElementById("name").value,
+contact: document.getElementById("contact").value,
+vehicle: document.getElementById("vehicle").value,
+vehicleno: document.getElementById("vehicleno").value,
+bike: document.getElementById("bikeWash").checked ? "Yes" : "No",
+soap: document.getElementById("soapWash").checked ? "Yes" : "No",
+diesel: document.getElementById("dieselWash").checked ? "Yes" : "No",
+payment: document.querySelector('input[name="payment"]:checked')?.value || ""
+
+};
+
+fetch(scriptURL, {
+
+method: "POST",
+body: JSON.stringify(data)
+
+})
+.then(response => {
+
+document.getElementById("successMsg").style.display = "block";
+
+document.getElementById("bookingForm").reset();
+
+})
+.catch(error => {
+
+alert("Error! Check Google Script URL");
+
+});
+
+});
+
+</script>
+
+</body>
+</html>
+
+
+</div>
+<script>
+    
+</script>
+
+<script>
+
+const scriptURL ="https://script.google.com/macros/s/AKfycbwTp7hvY4bubp8uFcoTufFj-qkN-muOc3pC-w5-XxCMLGunMKu7Y7wmGOhOMbnzfHBezg/exec";
+
+document.querySelector("form").addEventListener("submit", function(e){
+
+e.preventDefault();
+
+var bike = document.querySelector('input[value="Bike Wash"]').checked ? "Yes" : "No";
+var soap = document.querySelector('input[value="Soap Wash"]').checked ? "Yes" : "No";
+var diesel = document.querySelector('input[value="Diesel Wash"]').checked ? "Yes" : "No";
+
+var payment = document.querySelector('input[name="payment"]:checked')?.value || "";
+
+var data = {
+
+name: document.querySelector('input[type="text"]').value,
+contact: document.querySelector('input[type="tel"], input[placeholder="Enter contact number"]').value,
+vehicle: document.querySelector('select').value,
+bike: bike,
+soap: soap,
+diesel: diesel,
+payment: payment
+
+};
+
+fetch(scriptURL, {
+
+method: "POST",
+body: JSON.stringify(data)
+
+})
+.then(res => alert("Booking Saved Successfully"))
+.catch(err => alert("Error Saving"));
+
+});
+
+</script>
+
+</body>
+</html>
+
+</body>
+</html>

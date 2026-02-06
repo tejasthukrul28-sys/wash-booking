@@ -1,0 +1,91 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f2f6ff;
+    padding: 30px;
+}
+
+.container {
+    max-width: 420px;
+    background: #ffffff;
+    margin: auto;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+.logo {
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+.logo img {
+    max-width: 120px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+    color: #555;
+}
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 6px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.checkbox-group,
+.radio-group {
+    margin-top: 8px;
+}
+
+.checkbox-group label,
+.radio-group label {
+    display: block;
+    font-weight: normal;
+    margin-top: 5px;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 20px;
+    background: #1e88e5;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #1565c0;
+}
+
+#vehicleno {
+    text-transform: lowercase;
+}
+
+.success-message {
+    display: none;
+    margin-top: 15px;
+    text-align: center;
+    color: #16a34a;
+    font-weight: 600;
+    font-size: 15px;
+}
