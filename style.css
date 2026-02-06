@@ -89,3 +89,14 @@ button:hover {
     font-weight: 600;
     font-size: 15px;
 }
+@media only screen and (max-width: 600px) {
+  .container {
+    width: 95%;
+  }
+
+  input, select, textarea, button {
+    width: 100%;
+  }
+}
+
+
